@@ -1,19 +1,58 @@
-# 👥 LUNAR SENTRY AI — Team Collaboration & Onboarding Guide
+# 👥 LUNAR SENTRY AI — Team Collaboration & Onboarding Guide (4-Member Team)
 
-Welcome to the **Lunar Sentry AI** engineering team! This guide contains the exact steps for each teammate to clone the repository, set up their independent development environments, run backend and frontend services, and follow our Git collaboration workflow.
+Welcome to the **Lunar Sentry AI** engineering team! This guide establishes the team workflow, repository access controls, environment setup, and Git protocols for our 4-member team.
 
 ---
 
-## 1. Initial Repository Clone
+## 1. Team Roles & Responsibilities
 
-Clone the shared GitHub repository to your local machine:
+Our team operates with 4 dedicated roles to allow parallel development without overlapping changes:
+
+| Role | Member Focus | Primary Work Directory | Key Responsibilities |
+|---|---|---|---|
+| **Member 1: AI / Computer Vision** | Model & Inference | `backend/weights/`, `backend/app/` | YOLOv9-Lunar model inference, weight integration, GSD image calibration, and detection evaluation. |
+| **Member 2: Backend Engineer** | API & Persistence | `backend/app/`, `backend/alembic/` | FastAPI endpoints, SQLite / SQLAlchemy persistence, Alembic migrations, and WebSocket telemetry stream. |
+| **Member 3: Frontend Engineer** | User Interface | `lunar-sentry-ai/src/` | React 18 SPA dashboards, interactive controls, live telemetry display, and API fetch integration. |
+| **Member 4: Integration & QA Lead** | Coordination & DevOps | Root, `backend/tests/`, Docs | Central Git repository management, PR reviews, automated test suites, documentation, and release readiness. |
+
+---
+
+## 2. GitHub Access & Repository Permissions
+
+To allow all 4 members to work on the central GitHub repository:
+
+### 2.1 Granting Collaborator Access (Repo Owner Action)
+1. Go to the repository on GitHub: [https://github.com/harsha2345678/lunar](https://github.com/harsha2345678/lunar)
+2. Click **Settings** (top navigation tab).
+3. In the left sidebar, click **Collaborators** under *Access*.
+4. Click the green **Add people** button.
+5. Enter each member's GitHub username or email address and click **Add <user> to this repository**.
+6. Each member will receive an invitation email and must click **Accept Invitation** (or accept at `https://github.com/harsha2345678/lunar/invitations`).
+
+### 2.2 Member Authentication (PAT or SSH)
+GitHub no longer accepts account passwords for Git operations. Members must authenticate using either:
+- **Personal Access Token (PAT):**
+  1. On GitHub: `Settings > Developer settings > Personal access tokens > Tokens (classic)`.
+  2. Generate new token with `repo` scope selected.
+  3. When Git prompts for a password during `git push`, paste the token.
+- **SSH Key (Recommended):**
+  1. Run `ssh-keygen -t ed25519 -C "your_email@example.com"`.
+  2. Add the public key (`~/.ssh/id_ed25519.pub`) to `GitHub > Settings > SSH and GPG keys`.
+  3. Clone using SSH: `git clone git@github.com:harsha2345678/lunar.git`.
+
+---
+
+## 3. Initial Repository Clone
+
+Every member clones the central repository to their local machine:
 
 ```powershell
 git clone https://github.com/harsha2345678/lunar.git
 cd lunar
+git checkout develop
 ```
 
-Verify your local branches:
+Verify local branches:
 ```powershell
 git status
 git branch -a
@@ -201,6 +240,7 @@ Go to GitHub, open a **Pull Request** targeting `develop`, and request a review 
 
 ## 7. Role Distribution Reference
 
-- **Teammate 1 (AI / Computer Vision):** Works on `backend/` model weight loading, YOLOv9-Lunar inference, and image preprocessing functions.
-- **Teammate 2 (Backend / Database):** Works on `backend/` FastAPI endpoints, database persistence, Alembic migrations, and WebSocket telemetry stream.
-- **Teammate 3 (Frontend / UI Integration):** Connects `lunar-sentry-ai/` fetch calls to the running backend endpoints and manages live UI state.
+- **Member 1 (AI / Computer Vision Engineer):** Works on `backend/weights/`, model loading, YOLOv9-Lunar inference, and image preprocessing functions.
+- **Member 2 (Backend / Database Engineer):** Works on `backend/` FastAPI endpoints, database persistence, Alembic migrations, and WebSocket telemetry stream.
+- **Member 3 (Frontend / UI Engineer):** Connects `lunar-sentry-ai/` fetch calls to the running backend endpoints and manages live UI state.
+- **Member 4 (Integration / QA Lead):** Manages repository branching, merge conflict resolution, test pipelines, and deployment release verification.

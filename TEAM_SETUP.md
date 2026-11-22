@@ -9,10 +9,9 @@ Welcome to the **Lunar Sentry AI** engineering team! This guide contains the exa
 Clone the shared GitHub repository to your local machine:
 
 ```powershell
-git clone <GITHUB_REPOSITORY_URL>
-cd se
+git clone https://github.com/harsha2345678/lunar.git
+cd lunar
 ```
-*(Replace `<GITHUB_REPOSITORY_URL>` with our team's verified repository URL).*
 
 Verify your local branches:
 ```powershell

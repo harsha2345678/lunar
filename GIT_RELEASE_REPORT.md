@@ -22,8 +22,8 @@ All security, secret hygiene, dependency exclusion, and test verifications have 
 | **Repository Root** | `c:\Users\Harsh\OneDrive\Desktop\se` | Initialized Git repository |
 | **Default Root Branch** | `main` | Production-stable branch |
 | **Collaboration Branch** | `develop` | Integration branch for teammates |
-| **Configured Remotes** | `None` (Local Repository) | Remote origin not yet attached on local machine |
-| **Push Status** | ⚠️ **AWAITING REMOTE URL** | Ready for immediate push upon supplying team remote URL |
+| **Configured Remotes** | `origin` -> `https://github.com/harsha2345678/lunar.git` | Verified remote on GitHub |
+| **Push Status** | ✅ **PUSH READY** | Synchronized with origin/main |
 
 ---
 
@@ -123,8 +123,8 @@ Provide these commands to your two teammates:
 
 ```powershell
 # Step 1: Clone the repository and switch to develop
-git clone <YOUR_REPO_URL>
-cd se
+git clone https://github.com/harsha2345678/lunar.git
+cd lunar
 git checkout develop
 
 # Step 2: Set up and start the Backend (Terminal 1)
